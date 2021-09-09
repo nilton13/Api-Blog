@@ -9,6 +9,10 @@ class Category extends Model{
             sequelize
         })
     }
+
+    static associate(models){
+        this.hasMany(models.Article)
+    }
 }
 
 module.exports = Category;
