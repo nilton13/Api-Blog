@@ -14,5 +14,7 @@ User.init(connection);
 Article.init(connection);
 
 Article.associate(connection.models);
+User.associate(connection.models);
+Category.associate(connection.models);
 
 module.exports = connection;

@@ -1,3 +1,4 @@
+const Article = require('../models/Article');
 const Users = require('../models/User');
 const bcrypt = require('bcrypt');
 const salt = 8
@@ -19,9 +20,16 @@ module.exports = {
         return res.json(users);
     },
 
-    async login(req,res){
+    async showArticle(req,res){
+        const id = parseInt(req.params.id);
 
-    },
+        const articles = await Users.findByPk(id , {
+            include:{ association: 'users' }
+        })
+
+
+        return res.json(articles);
+    }
 
     
 }

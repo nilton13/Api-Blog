@@ -34,15 +34,7 @@ module.exports = {
         });
 
         return res.json(new_article);
-    },
-
-    async showArticle(req,res){
-        const { categoryId } = req.params;
-
-        const articles = await Category.findByPk(categoryId,{
-            include: { association: 'categories' }
-        })
-
-        return res.json(articles);
     }
+
+    
 }

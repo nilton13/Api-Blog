@@ -1,4 +1,5 @@
 const Category = require('../models/Category');
+const Article =  require('../models/Article')
 
 module.exports = {
     async create(req,res){
@@ -18,5 +19,13 @@ module.exports = {
 
     },
 
-    
+    async showArticle(req,res){
+        const categoryId = parseInt(req.params.id);
+
+        const articles = await Category.findByPk(categoryId,{
+            include: { association: 'categories' }
+        })
+
+        return res.json(articles);
+    }
 }
