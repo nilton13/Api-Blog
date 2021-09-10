@@ -16,5 +16,7 @@ module.exports = {
 
         return res.json(category);
 
-    }
+    },
+
+    
 }
